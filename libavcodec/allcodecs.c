@@ -846,6 +846,13 @@ extern AVCodec ff_mpeg4_nvmpi_decoder;
 extern AVCodec ff_vp8_nvmpi_decoder;
 extern AVCodec ff_vp9_nvmpi_decoder;
 
+// Official hw decode patch from nvidia (dirty put in by hand)
+extern AVCodec ff_h264_nvv4l2dec_decoder;
+extern AVCodec ff_hevc_nvv4l2dec_decoder;
+extern AVCodec ff_mpeg2_nvv4l2dec_decoder;
+extern AVCodec ff_mpeg4_nvv4l2dec_decoder;
+extern AVCodec ff_vp8_nvv4l2dec_decoder;
+extern AVCodec ff_vp9_nvv4l2dec_decoder;
 
 // The iterate API is not usable with ossfuzz due to the excessive size of binaries created
 #if CONFIG_OSSFUZZ

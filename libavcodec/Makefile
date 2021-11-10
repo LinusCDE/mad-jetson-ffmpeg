@@ -1192,6 +1192,13 @@ OBJS-$(CONFIG_MPEG4_NVMPI_DECODER)     += nvmpi_dec.o
 OBJS-$(CONFIG_VP8_NVMPI_DECODER)       += nvmpi_dec.o
 OBJS-$(CONFIG_VP9_NVMPI_DECODER)       += nvmpi_dec.o
 
+# Nvidia official hw decode support
+OBJS-$(CONFIG_H264_NVV4L2DEC_DECODER)  += nvv4l2_dec.o
+OBJS-$(CONFIG_HEVC_NVV4L2DEC_DECODER)  += nvv4l2_dec.o
+OBJS-$(CONFIG_MPEG2_NVV4L2DEC_DECODER) += nvv4l2_dec.o
+OBJS-$(CONFIG_MPEG4_NVV4L2DEC_DECODER) += nvv4l2_dec.o
+OBJS-$(CONFIG_VP8_NVV4L2DEC_DECODER)   += nvv4l2_dec.o
+OBJS-$(CONFIG_VP9_NVV4L2DEC_DECODER)   += nvv4l2_dec.o
 
 # Windows resource file
 SLIBOBJS-$(HAVE_GNU_WINDRES)           += avcodecres.o
