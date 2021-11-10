@@ -836,6 +836,17 @@ extern AVCodec ff_vp9_qsv_decoder;
 extern AVCodec ff_vp9_vaapi_encoder;
 extern AVCodec ff_vp9_qsv_encoder;
 
+// jetson-ffmpeg
+extern AVCodec ff_h264_nvmpi_decoder;
+extern AVCodec ff_h264_nvmpi_encoder;
+extern AVCodec ff_hevc_nvmpi_decoder;
+extern AVCodec ff_hevc_nvmpi_encoder;
+extern AVCodec ff_mpeg2_nvmpi_decoder;
+extern AVCodec ff_mpeg4_nvmpi_decoder;
+extern AVCodec ff_vp8_nvmpi_decoder;
+extern AVCodec ff_vp9_nvmpi_decoder;
+
+
 // The iterate API is not usable with ossfuzz due to the excessive size of binaries created
 #if CONFIG_OSSFUZZ
 AVCodec * codec_list[] = {

@@ -1182,6 +1182,17 @@ OBJS-$(HAVE_THREADS)                   += pthread.o pthread_slice.o pthread_fram
 
 OBJS-$(CONFIG_FRAME_THREAD_ENCODER)    += frame_thread_encoder.o
 
+# ffmpeg-jetson
+OBJS-$(CONFIG_H264_NVMPI_DECODER)      += nvmpi_dec.o
+OBJS-$(CONFIG_H264_NVMPI_ENCODER)      += nvmpi_enc.o
+OBJS-$(CONFIG_HEVC_NVMPI_DECODER)      += nvmpi_dec.o
+OBJS-$(CONFIG_HEVC_NVMPI_ENCODER)      += nvmpi_enc.o
+OBJS-$(CONFIG_MPEG2_NVMPI_DECODER)     += nvmpi_dec.o
+OBJS-$(CONFIG_MPEG4_NVMPI_DECODER)     += nvmpi_dec.o
+OBJS-$(CONFIG_VP8_NVMPI_DECODER)       += nvmpi_dec.o
+OBJS-$(CONFIG_VP9_NVMPI_DECODER)       += nvmpi_dec.o
+
+
 # Windows resource file
 SLIBOBJS-$(HAVE_GNU_WINDRES)           += avcodecres.o
 
