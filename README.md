@@ -93,6 +93,10 @@ Additional decoders:
  V..... h264_nvv4l2dec       h264 (nvv4l2dec) (codec h264)
  V..... hevc_nvmpi           hevc (nvmpi) (codec hevc)
  V..... hevc_nvv4l2dec       hevc (nvv4l2dec) (codec hevc)
+ V..... mpeg2_nvmpi          mpeg2 (nvmpi) (codec mpeg2video)
+ V..... mpeg2_nvv4l2dec      mpeg2 (nvv4l2dec) (codec mpeg2video)
+ V..... mpeg4_nvmpi          mpeg4 (nvmpi) (codec mpeg4)
+ V..... mpeg4_nvv4l2dec      mpeg4 (nvv4l2dec) (codec mpeg4)
  V..... vp8_nvmpi            vp8 (nvmpi) (codec vp8)
  V..... vp8_nvv4l2dec        vp8 (nvv4l2dec) (codec vp8)
  V..... vp9_nvmpi            vp9 (nvmpi) (codec vp9)
@@ -105,6 +109,8 @@ Additional encoders:
  V..... h264_nvmpi           nvmpi H.264 encoder wrapper (codec h264)
  V..... hevc_nvmpi           nvmpi HEVC encoder wrapper (codec hevc)
 ```
+
+To easily see all supported flags for the encoders use `ffmpeg -h encoder=<name_here>`.
 
 ### Word of advice
 
