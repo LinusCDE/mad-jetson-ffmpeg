@@ -551,10 +551,13 @@ static void query_set_capture(AVCodecContext * avctx, context_t * ctx)
     struct v4l2_format format;
     struct v4l2_crop crop;
     struct v4l2_control ctl;
-    int ret_val;
+    int ret_val, cp_num_old_buffers;
     int32_t min_cap_buffers;
     NvBufferCreateParams input_params = { 0 };
     NvBufferCreateParams cap_params = { 0 };
+
+    if (ctx->in_error || ctx->eos)
+        return;
 
     /* Get format on capture plane set by device.
      ** This may change after an resolution change event.
@@ -628,6 +631,7 @@ static void query_set_capture(AVCodecContext * avctx, context_t * ctx)
     /* Request buffers with count 0 and destroy all
      ** previously allocated buffers.
      */
+    cp_num_old_buffers = ctx->cp_num_buffers;
     ret_val =
         req_buffers_on_capture_plane(ctx,
                                      V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE,
@@ -641,7 +645,7 @@ static void query_set_capture(AVCodecContext * avctx, context_t * ctx)
 
     /* Destroy previous DMA buffers. */
     if (ctx->cp_mem_type == V4L2_MEMORY_DMABUF) {
-        for (uint32_t index = 0; index < ctx->cp_num_buffers; ++index) {
+        for (uint32_t index = 0; index < cp_num_old_buffers; ++index) {
             if (ctx->dmabuff_fd[index] != 0) {
                 ret_val = NvBufferDestroy(ctx->dmabuff_fd[index]);
                 if (ret_val) {
