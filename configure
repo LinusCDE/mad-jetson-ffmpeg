@@ -336,6 +336,7 @@ External library support:
   --enable-cuda-nvcc       enable Nvidia CUDA compiler [no]
   --disable-cuda-llvm      disable CUDA compilation using clang [autodetect]
   --disable-cuvid          disable Nvidia CUVID support [autodetect]
+  --enable-nvv4l2dec       enable Nvidia NVV4L2DEC support [no]
   --disable-d3d11va        disable Microsoft Direct3D 11 video acceleration code [autodetect]
   --disable-dxva2          disable Microsoft DirectX 9 video acceleration code [autodetect]
   --disable-ffnvcodec      disable dynamically linked Nvidia code [autodetect]
@@ -1893,6 +1894,7 @@ HWACCEL_AUTODETECT_LIBRARY_LIST="
     videotoolbox
     vulkan
     v4l2_m2m
+    nvv4l2dec
 "
 
 # catchall list of things that require external libs to link
@@ -3179,6 +3181,8 @@ h264_mf_encoder_deps="mediafoundation"
 h264_mmal_decoder_deps="mmal"
 h264_nvenc_encoder_deps="nvenc"
 h264_nvmpi_encoder_deps="nvmpi"
+h264_nvv4l2dec_decoder_deps="nvv4l2dec"
+h264_nvv4l2dec_decoder_select="h264_mp4toannexb_bsf"
 h264_nvenc_encoder_select="atsc_a53"
 h264_omx_encoder_deps="omx"
 h264_qsv_decoder_select="h264_mp4toannexb_bsf qsvdec"
@@ -3203,6 +3207,8 @@ hevc_mediacodec_encoder_select="hevc_metadata"
 hevc_mf_encoder_deps="mediafoundation"
 hevc_nvenc_encoder_deps="nvenc"
 hevc_nvmpi_encoder_deps="nvmpi"
+hevc_nvv4l2dec_decoder_deps="nvv4l2dec"
+hevc_nvv4l2dec_decoder_select="hevc_mp4toannexb_bsf"
 hevc_nvenc_encoder_select="atsc_a53"
 hevc_qsv_decoder_select="hevc_mp4toannexb_bsf qsvdec"
 hevc_qsv_encoder_select="hevcparse qsvenc"
@@ -3229,6 +3235,7 @@ mpeg2_cuvid_decoder_deps="cuvid"
 mpeg2_nvmpi_decoder_deps="nvmpi"
 mpeg2_mmal_decoder_deps="mmal"
 mpeg2_mediacodec_decoder_deps="mediacodec"
+mpeg2_nvv4l2dec_decoder_deps="nvv4l2dec"
 mpeg2_qsv_decoder_select="qsvdec"
 mpeg2_qsv_encoder_select="qsvenc"
 mpeg2_vaapi_encoder_select="cbs_mpeg2 vaapi_encode"
@@ -3238,6 +3245,7 @@ mpeg4_cuvid_decoder_deps="cuvid"
 mpeg4_nvmpi_decoder_deps="nvmpi"
 mpeg4_mediacodec_decoder_deps="mediacodec"
 mpeg4_mmal_decoder_deps="mmal"
+mpeg4_nvv4l2dec_decoder_deps="nvv4l2dec"
 mpeg4_omx_encoder_deps="omx"
 mpeg4_v4l2m2m_decoder_deps="v4l2_m2m mpeg4_v4l2_m2m"
 mpeg4_v4l2m2m_encoder_deps="v4l2_m2m mpeg4_v4l2_m2m"
@@ -3250,6 +3258,7 @@ vc1_v4l2m2m_decoder_deps="v4l2_m2m vc1_v4l2_m2m"
 vp8_cuvid_decoder_deps="cuvid"
 vp8_nvmpi_decoder_deps="nvmpi"
 vp8_mediacodec_decoder_deps="mediacodec"
+vp8_nvv4l2dec_decoder_deps="nvv4l2dec"
 vp8_qsv_decoder_select="qsvdec"
 vp8_rkmpp_decoder_deps="rkmpp"
 vp8_vaapi_encoder_deps="VAEncPictureParameterBufferVP8"
@@ -3259,6 +3268,7 @@ vp8_v4l2m2m_encoder_deps="v4l2_m2m vp8_v4l2_m2m"
 vp9_cuvid_decoder_deps="cuvid"
 vp9_nvmpi_decoder_deps="nvmpi"
 vp9_mediacodec_decoder_deps="mediacodec"
+vp9_nvv4l2dec_decoder_deps="nvv4l2dec"
 vp9_qsv_decoder_select="qsvdec"
 vp9_rkmpp_decoder_deps="rkmpp"
 vp9_vaapi_encoder_deps="VAEncPictureParameterBufferVP9"
